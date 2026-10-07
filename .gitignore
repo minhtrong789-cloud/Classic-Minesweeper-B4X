@@ -1,0 +1,18 @@
+﻿# B4X Build outputs & compiler cache
+**/Objects/
+**/AutoBackups/
+**/.b4a_cache/
+**/.b4x_cache/
+*.meta
+
+# Local game saves & user data
+besttimes.txt
+
+# Editor & IDE configs
+.vscode/
+.idea/
+*.swp
+*.bak
+B4A/
+B4i/
+!ProgrammingB4X_MineSweeperClassic.b4j.meta

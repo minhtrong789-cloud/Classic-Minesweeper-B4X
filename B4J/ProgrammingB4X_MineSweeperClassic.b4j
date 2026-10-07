@@ -1,0 +1,94 @@
+AppType=JavaFX
+Build1=Default,b4j.example
+File1=Face_BlackWhite.bmp
+File10=Media_Exploded.wav
+File11=Media_Winned.wav
+File12=Mine_BlackWhite.bmp
+File13=Mine_Color.bmp
+File14=MineSweeper.ico
+File15=Number_BlackWhite.bmp
+File16=Number_Color.bmp
+File17=RoccoW_DontDishIt.mp3
+File18=RoccoW_PartyCancelled.mp3
+File2=Face_Color.bmp
+File3=Game Win Sound Effect (#8).mp3
+File4=GameUI_Frame.bmp
+File5=Main.bmp
+File6=Main.ico
+File7=Main.PNG
+File8=MainPage.bjl
+File9=Media_Clicked.wav
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup13=Default Group
+FileGroup14=Default Group
+FileGroup15=Default Group
+FileGroup16=Default Group
+FileGroup17=Default Group
+FileGroup18=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+FileGroup8=New Group
+FileGroup9=Default Group
+Group=Default Group
+Library1=jcore
+Library2=jfx
+Library3=b4xpages
+Module1=|relative|..\B4XMainPage
+Module2=|relative|..\BoardLogic
+Module3=|relative|..\RenderUI
+NumberOfFiles=18
+NumberOfLibraries=3
+NumberOfModules=3
+Version=10.5
+@EndOfDesignText@
+#Region Project Attributes
+	#MainFormWidth: 600
+	#MainFormHeight: 600
+	#PackagerProperty: IconFile = ..\Files\Main.ico
+#End Region
+
+Sub Process_Globals
+	Private fx As JFX
+	Private MainForm As Form
+End Sub
+
+Sub AppStart (Form1 As Form, Args() As String)
+	MainForm = Form1
+	MainForm.Title = "Minesweeper Classic"
+	MainForm.Icon = fx.LoadImage(File.DirAssets, "Main.ico")
+	MainForm.Show
+	Dim PagesManager As B4XPagesManager
+	PagesManager.Initialize(MainForm)
+End Sub
+
+'Template version: B4J-1.0
+#Region Delegates
+
+	Sub MainForm_FocusChanged (HasFocus As Boolean)
+		B4XPages.Delegate.MainForm_FocusChanged(HasFocus)
+	End Sub
+
+	Sub MainForm_Resize (Width As Double, Height As Double)
+		B4XPages.Delegate.MainForm_Resize(Width, Height)
+	End Sub
+
+	Sub MainForm_Closed
+		B4XPages.Delegate.MainForm_Closed
+	End Sub
+
+	Sub MainForm_CloseRequest (EventData As Event)
+		B4XPages.Delegate.MainForm_CloseRequest(EventData)
+
+	End Sub
+
+	Public Sub MainForm_IconifiedChanged (Iconified As Boolean)
+		B4XPages.Delegate.MainForm_IconifiedChanged(Iconified)
+	End Sub
+#End Region
