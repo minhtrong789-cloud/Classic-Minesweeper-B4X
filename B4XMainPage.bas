@@ -143,17 +143,8 @@ Private Sub gamePane_MousePressed (EventData As MouseEvent)
 				Media_Winning.Stop
 				Media_BombExploded.Stop
 				Media_BombExploded.Play
-			End If
-
-			'Handling Right Click
-		Else If EventData.SecondaryButtonPressed And BoardLogic.State = BoardLogic.State_Playing Then
-			If selMine.Reveal = False Then
-				BoardLogic.setMark(selMine)
-				Renderer.RenderMineCount
-			End If
-
-			'Check win
-			If BoardLogic.MinesLeft = 0 Then
+			Else If BoardLogic.SafeCellsLeft = 0 Then
+				'Check win
 				BoardLogic.Result_Win
 				gameTimer.Enabled = False
 				Media_GamePlaying.Stop
@@ -162,6 +153,13 @@ Private Sub gamePane_MousePressed (EventData As MouseEvent)
 				Media_Winned.Play
 				Dim besttime As Int = Floor((DateTime.Now - BoardLogic.StartTime) / 1000)
 				BestTime_Write(BoardLogic.SelectedLevel.CurrentLevel, besttime)
+			End If
+
+			'Handling Right Click
+		Else If EventData.SecondaryButtonPressed And BoardLogic.State = BoardLogic.State_Playing Then
+			If selMine.Reveal = False Then
+				BoardLogic.setMark(selMine)
+				Renderer.RenderMineCount
 			End If
 		End If
 

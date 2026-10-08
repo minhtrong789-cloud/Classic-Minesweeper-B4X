@@ -1,4 +1,4 @@
-AppType=JavaFX
+﻿AppType=JavaFX
 Build1=Default,b4j.example
 File1=Face_BlackWhite.bmp
 File10=Media_Exploded.wav
@@ -62,7 +62,7 @@ End Sub
 Sub AppStart (Form1 As Form, Args() As String)
 	MainForm = Form1
 	MainForm.Title = "Minesweeper Classic"
-	MainForm.Icon = fx.LoadImage(File.DirAssets, "Main.ico")
+	MainForm.Icon = fx.LoadImage(File.DirAssets, "Main.PNG")
 	MainForm.Show
 	Dim PagesManager As B4XPagesManager
 	PagesManager.Initialize(MainForm)

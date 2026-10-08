@@ -37,6 +37,7 @@ Sub Process_Globals
 	'BOARD & COUNTERS
 	Public GameBoard(, ) As mine  '(row, column)
 	Public MinesLeft As Int
+	Public SafeCellsLeft As Int
 
 	'SETTINGS
 	Public QuestionEnable As Boolean = True
@@ -64,6 +65,7 @@ Public Sub ApplyLevel(GameLevel As String)
 
 	SelectedLevel.CurrentLevel = GameLevel
 	MinesLeft = SelectedLevel.numMines
+	SafeCellsLeft = (SelectedLevel.numRows * SelectedLevel.numColumns) - SelectedLevel.numMines
 
 	Dim newBoard(SelectedLevel.numRows, SelectedLevel.numColumns) As mine
 	GameBoard = newBoard
@@ -163,6 +165,7 @@ Public Sub RevealCell(startR As Int, startC As Int)
 		If GameBoard(r, c).Mark = Mark_Flag Then Continue
 
 		GameBoard(r, c).Reveal = True
+		SafeCellsLeft = SafeCellsLeft - 1
 
 		'If empty cell (MineNumber = 0), reveal 8 neighbors
 		If GameBoard(r, c).MineNumber = 0 Then
